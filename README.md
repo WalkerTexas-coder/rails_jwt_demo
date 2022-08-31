@@ -1,13 +1,10 @@
 # Rails with Devise and JSON Web Tokens
-
-Thanks everyone for joining today. The goal of this talk is to serve both as an quick introduction to JWT (JSON Web Token) pronounced Jot and how to get set up using them in a rails app with Devise. 
-
-
-# Tools we will be using in this talk
+## Tools we will be using in this talk
   - Ruby
   - Rails
   - Rails Console
   - GNU nano
+    - or editor of your choice
   - Devise
   - Postman
 
