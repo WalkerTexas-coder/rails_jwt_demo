@@ -242,7 +242,8 @@ end
 ```
 # Postman
 - Make sure to set your body settings to JSON
-- Direct your postman to the POST/users endpoint
+- Direct your postman to the POST/users endpoint  
+
 POST to localhost:3000/users 
 ```JSON
 { 
@@ -256,7 +257,8 @@ POST to localhost:3000/users
 - After this action delete cookie in Postman by clicking cookie the the x by the interslice session. 
 - This effectively works as logging out
 
-- Direct your postman to the POST/users/sign_in endpoint
+- Direct your postman to the POST/users/sign_in endpoint. 
+
 POST localhost:3000/users/sign_in
 ```JSON
 { 
@@ -269,7 +271,7 @@ POST localhost:3000/users/sign_in
 Headers -> Authorization -> Bearer
 
 - Direct your postman to the GET/member-data endpoint 
-- and add the token from the previous respons to the autherization bearer token feild. 
+- and add the token from the previous respons to the autherization bearer token feild.   
 
 GET localhost:3000/member-data
 ```JSON
@@ -282,7 +284,7 @@ GET localhost:3000/member-data
 ```
 Headers -> Authorization -> Bearer
 - Direct your postman to the DELETE/users/sign_out endpoint 
-- be sure to send over the token and the email
+- be sure to send over the token and the email. 
 
 DELETE localhost:3000/users/sign_in
 ```JSON
