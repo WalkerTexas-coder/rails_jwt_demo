@@ -66,7 +66,7 @@ class User < ApplicationRecord
 end
 ```
 ## JWT Model
-/models/jwt_denylist.rb
+- /models/jwt_denylist.rb
 ```ruby
 class JwtDenylist < ApplicationRecord
   include Devise::JWT::RevocationStrategies::Denylist
@@ -74,7 +74,7 @@ class JwtDenylist < ApplicationRecord
   self.table_name = 'jwt_denylist'
 end
 ```
- $ rails db:migrate
+
 
 ## Devise Controllers
 - create file in controllers called members_controller
