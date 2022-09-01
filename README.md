@@ -18,7 +18,7 @@
 - can be used for Authorization and Authentication in place of other formats like SAML
 - Is a combination of three json objects that are hashed accroding to a specidfed algorithim sepreated by "."
 - example
-```JSON
+```
 {
   "alg": "HS256",
   "typ": "JWT"
@@ -31,7 +31,7 @@
 rails_secrets_go_here
 ```
 Would end up as...
-```JSON
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkF1c3RpbiBXYWxrZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.pnTJ07U-hnLG13WyPzkKfHE00rO5ybtDo6Z-HroXGHI
 ```
 - This token is sent to the client via the Authorization headers as a bearer token
