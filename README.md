@@ -205,11 +205,8 @@ devise_for :users,
 get 'member-data', to: 'members#show'
 ```
 
-## Testing your new Devise jwt Tokens with postman
 
-# Setting up Cors
-  ## Cors
- $ bundle add devise devise-jwt rack-cors
+# Cors
 
 - config/initializers/cors.rb
 ```ruby
@@ -224,7 +221,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
       expose: %w[Authorization Uid]
   end
 end
