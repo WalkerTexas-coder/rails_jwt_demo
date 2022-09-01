@@ -229,7 +229,44 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 end
 ```
-# 
+# Postman
+- Direct your postman to the POST/users endpoint
+
+POST to localhost:3000/users 
+JSON
+{ 
+    "user" : {
+        "email": "test@example.com",
+        "password" : "testing123",
+        "password_confirmation" : "testing12"
+    }
+}
+
+- After this action delete cookie in Postman by clicking cookie the the x by the interslice session. 
+
+- Direct your postman to the POST/users/sign_in endpoint
+POST localhost:3000/users/sign_in
+{ 
+    "user" : {
+        "email": "test@example.com",
+        "password" : "testing123"
+        
+    }
+}
+Headers -> Authorization -> Bearer
+
+- Direct your postman to the GET/member-data endpoint and add the token from the previous respons to the autherization bearer token feild. 
+
+GET localhost:3000/member-data
+{ 
+    "user" : {
+        "email": "test4@example.com",
+        "password" : "testing12"
+
+    }
+}
+Headers -> Authorization -> Bearer
+
 
 
 # Some notes about JWT limitations
