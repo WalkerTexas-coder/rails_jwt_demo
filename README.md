@@ -16,13 +16,9 @@ I also have some customizations on my rails new command where I am creating my r
 √  $ cd jwt_demo
 √  $ rails db:prepare
 ```
-Prepare has a conditional that checks for a couple of different database / schema file situations and runs the appropriate commands 
+Prepare has a conditional that checks for a couple of different database / schema file situations and runs the appropriate commands.
 
 
-
-
-
-[helpful video](https://www.youtube.com/watch?v=PqizV5l1yFE)
 ## Installations
  $ bundle add devise devise-jwt rack-cors
 ## JwtDenylist Migrations
