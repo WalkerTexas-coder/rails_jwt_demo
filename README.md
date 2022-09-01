@@ -109,7 +109,7 @@ app/controllers/users/registrations_controller.rb
 ```ruby
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
-  ----> # don't understand what this is serializing 
+
   private
 
   def respond_with(resource, _opts = {})
