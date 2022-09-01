@@ -268,17 +268,18 @@ POST localhost:3000/users/sign_in
     }
 }
 ```
-Headers -> Authorization -> Bearer
+- Notice that when you log in that our API send back the current user's email and password
+- If we look inside Headers -> Authorization -> Bearer we will find our JSON Web Token
 
 - Direct your postman to the GET/member-data endpoint 
-- and add the token from the previous respons to the autherization bearer token feild.   
+- and add the token from the previous respons to the authorization tab -> bearer token field.   
 
 GET localhost:3000/member-data
 ```JSON
 { 
     "user" : {
-        "email": "test4@example.com",
-        "password" : "testing12"
+        "email": "test@example.com",
+        "password" : "testing123"
     }
 }
 ```
@@ -290,7 +291,7 @@ DELETE localhost:3000/users/sign_in
 ```JSON
 { 
     "user" : {
-        "email": "test4@example.com"
+        "email": "test@example.com"
     }
 }
 ```
