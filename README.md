@@ -22,24 +22,20 @@
 {
   "alg": "HS256",
   "typ": "JWT"
-}
-+ 
+}.
 {
   "sub": "1",
   "name": "Austin Walker",
   "iat": 1516239022
-}
-+
-HMACSHA256(
-  base64UrlEncode(header) + "." +
-  base64UrlEncode(payload),
- rails_secrets_go_here
-) 
+}.
+rails_secrets_go_here
 ```
 Would end up as...
 ```JSON
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkF1c3RpbiBXYWxrZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.pnTJ07U-hnLG13WyPzkKfHE00rO5ybtDo6Z-HroXGHI
 ```
+- This token is sent to the client via the Authorization headers as a bearer token
+- For more infor checkout out [jwt](https://jwt.io/)
 
 # Creating a Rails Api app 
 Creating a rails api is simple using the rails new command with the api flag. 
