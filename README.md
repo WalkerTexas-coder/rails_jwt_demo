@@ -3,8 +3,6 @@
   - Ruby
   - Rails
   - Rails Console
-  - GNU nano
-    - or editor of your choice
   - Devise
   - Postman
 
@@ -182,19 +180,20 @@ end
      config.middleware.use config.session_store, config.session_options
 ```
 ## Generate a Secret Token
+```
 $ rake secret
+```
 - copy the code
-$ EDITOR=nano rails credentials:edit
-- add this code under the secret_key_base: ...
-- SPECIAL NOTE: spaces only, no tabs!
-devise:
+$ EDITOR='code --wait' rails credentials:edit
+- add the secret after jwt_secret_key
+``` 
+secret_key_base: ...
+devise: 
   jwt_secret_key: [cmd+v]
 
-- then exit out of nano while saving work
-  - looking for the message in terminal
-  ctrl X?
-  ctrl C? 
-`File encrypted and saved.`
+ ```
+- SPECIAL NOTE: spaces only, no tabs!
+- Close the tab and you should see => File encrypted and saved.
 
 ## Devise Routes 
 ```ruby
