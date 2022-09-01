@@ -47,9 +47,9 @@ class CreateJwtDenylist < ActiveRecord::Migration[7.0]
 end
 ```
 Remove forced pluralization's // how active record interacts with plurals
-
+```
  $rails db:migrate
-
+```
 ## User Model
 - Delete the second line in the user.rb model configuration 
 - Add in the two lines below
