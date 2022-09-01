@@ -79,20 +79,21 @@ end
 ```ruby
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
     user = get_user_from_token
     render json: {
-      message: "If you see this, you're in!",
+      message: "If you see this it's all working!",
       user: user
     }
   end
 
   private
-
   def get_user_from_token
+    
     jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1],
-                             Rails.application.credentials.devise[:jwt_secret_key]).first
+          Rails.application.credentials.devise[:jwt_secret_key]).first
+    
     user_id = jwt_payload['sub']
     User.find(user_id.to_s)
   end
@@ -108,23 +109,25 @@ app/controllers/users/registrations_controller.rb
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
-  private
-
   def respond_with(resource, _opts = {})
-    register_success && return if resource.persisted?
-
-    register_failed
+    if resource.persisted?
+      register_success
+    else
+      register_failure
+    end
   end
 
   def register_success
     render json: {
-      message: 'Signed up sucessfully.',
+      message: 'Well done you signed in successfully',
       user: current_user
     }, status: 200
   end
 
-  def register_failed
-    render json: { message: 'Something went wrong.' }, status: 422
+  def register_failure
+    render json: {
+      message: 'Registration was unsuccessful'
+    }, status: 422
   end
 end
 ```
@@ -132,21 +135,30 @@ end
 app/controllers/users/sessions_controller.rb
 ```ruby
 class Users::SessionsController < Devise::SessionsController
-  respond_to :json
+ respond_to :json
 
-  private
+ private
 
   def respond_with(_resource, _opts = {})
+    if current_user
     render json: {
       message: 'You are logged in.',
       user: current_user
-    }, status: :ok
+    }, status: 200
+    else
+      render json: {
+      message: 'Log in failed',
+    }, status: 422
+    end
   end
 
   def respond_to_on_destroy
-    log_out_success && return if current_user
-
-    log_out_failure
+    p current_user
+    if current_user != nil
+      log_out_failure
+    else
+      log_out_success
+    end
   end
 
   def log_out_success
@@ -167,9 +179,11 @@ end
     jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
   end
 ```
-- set the session store to hide our token from the user using cookies
+## Cookie Session Configuration
+- set the session store to handle communication between browsers and server.
 - [session_store article](https://api.rubyonrails.org/v6.0.3.3/classes/ActionDispatch/Session/CookieStore.html#method-c-new)
 - config/application.rb
+  - inster this code roughly around line 20
 ```ruby
  # This also configures session_options for use below
     config.session_store :cookie_store, key: '_interslice_session'
@@ -192,7 +206,7 @@ devise:
   jwt_secret_key: [cmd+v]
 
  ```
-- SPECIAL NOTE: spaces only, no tabs!
+- SPECIAL NOTE: spaces and returns only, no tabs!
 - Close the tab and you should see => File encrypted and saved.
 
 ## Devise Routes 
@@ -227,10 +241,10 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 end
 ```
 # Postman
+- Make sure to set your body settings to JSON
 - Direct your postman to the POST/users endpoint
-
 POST to localhost:3000/users 
-JSON
+```JSON
 { 
     "user" : {
         "email": "test@example.com",
@@ -238,33 +252,46 @@ JSON
         "password_confirmation" : "testing12"
     }
 }
-
+```
 - After this action delete cookie in Postman by clicking cookie the the x by the interslice session. 
+- This effectively works as logging out
 
 - Direct your postman to the POST/users/sign_in endpoint
 POST localhost:3000/users/sign_in
+```JSON
 { 
     "user" : {
         "email": "test@example.com",
         "password" : "testing123"
-        
     }
 }
+```
 Headers -> Authorization -> Bearer
 
-- Direct your postman to the GET/member-data endpoint and add the token from the previous respons to the autherization bearer token feild. 
+- Direct your postman to the GET/member-data endpoint 
+- and add the token from the previous respons to the autherization bearer token feild. 
 
 GET localhost:3000/member-data
+```JSON
 { 
     "user" : {
         "email": "test4@example.com",
         "password" : "testing12"
-
     }
 }
+```
 Headers -> Authorization -> Bearer
+- Direct your postman to the DELETE/users/sign_out endpoint 
+- be sure to send over the token and the email
 
-
+DELETE localhost:3000/users/sign_in
+```JSON
+{ 
+    "user" : {
+        "email": "test4@example.com"
+    }
+}
+```
 
 # Some notes about JWT limitations
 Note that if you send JWT tokens through HTTP headers, you should try to prevent them from getting too big. Some servers don't accept more than 8 KB in headers. If you are trying to embed too much information in a JWT token, like by including all the user's permissions, you may need an alternative solution.
