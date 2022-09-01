@@ -20,7 +20,7 @@ Prepare has a conditional that checks for a couple of different database / schem
 
 
 ## Installations
- $ bundle add devise devise-jwt rack-cors
+ `$ bundle add devise devise-jwt rack-cors`
 ## JwtDenylist Migrations
  $ rails generate devise:install
  $ rails generate devise User
