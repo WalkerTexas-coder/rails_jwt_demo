@@ -169,9 +169,9 @@ end
     jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
   end
 ```
-- set the session store to not use cookies
+- set the session store to hide our token from the user using cookies
 - [session_store article](https://api.rubyonrails.org/v6.0.3.3/classes/ActionDispatch/Session/CookieStore.html#method-c-new)
-config/application.rb
+- config/application.rb
 ```ruby
  # This also configures session_options for use below
     config.session_store :cookie_store, key: '_interslice_session'
