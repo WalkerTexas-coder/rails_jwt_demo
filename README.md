@@ -122,11 +122,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render json: {
       message: 'Signed up sucessfully.',
       user: current_user
-    }, status: :ok
+    }, status: 200
   end
 
   def register_failed
-    render json: { message: 'Something went wrong.' }, status: :unprocessable_entity
+    render json: { message: 'Something went wrong.' }, status: 422
   end
 end
 ```
@@ -152,17 +152,17 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_out_success
-    render json: { message: 'You are logged out.' }, status: :ok
+    render json: { message: 'You are logged out.' }, status: 200
   end
 
   def log_out_failure
-    render json: { message: 'Hmm nothing happened.' }, status: :unauthorized
+    render json: { message: 'Hmm nothing happened.' }, status: 401
   end
 end
 ```
 
 ## Devise configuration 
-config/initializers/devise.rb
+- config/initializers/devise.rb
 - add this code inside the Devise setup do block, roughly line 18
 ```ruby
   config.jwt do |jwt|
