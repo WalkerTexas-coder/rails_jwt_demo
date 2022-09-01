@@ -198,8 +198,10 @@ end
 $ rake secret
 ```
 - copy the code
+```
 $ EDITOR='code --wait' rails credentials:edit
-- add the secret after jwt_secret_key
+```
+- add the secret after jwt_secret_key:
 ``` 
 secret_key_base: ...
 devise: 
