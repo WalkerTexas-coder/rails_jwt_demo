@@ -20,12 +20,17 @@ Prepare has a conditional that checks for a couple of different database / schem
 
 
 ## Installations
- `$ bundle add devise devise-jwt rack-cors`
+```
+ $ bundle add devise devise-jwt rack-cors
+```
+
 ## JwtDenylist Migrations
+```
  $ rails generate devise:install
  $ rails generate devise User
  $ rails g model jwt_denylist jti:string exp:datetime
   <!-- For logging out users safely on individual devices -->
+```
 ### Important
   - rename the migration file you just generated to be singular
   - rename the migration class you just generated to be singular
