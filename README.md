@@ -1,10 +1,45 @@
 # Rails with Devise and JSON Web Tokens
-## Tools we will be using in this talk
+ ### Inspiration for this talk came from
+ - [Deanin's FullStack Devise API walkthrough](https://youtu.be/PqizV5l1yFE)
+ - Wanting to know more about JSON Web Tokens
+ - Friends over at HackNotice
+ - LEARN Academy
+
+## Tools we will be using
   - Ruby
   - Rails
-  - Rails Console
   - Devise
+  - JSON Web Tokens
   - Postman
+
+
+# A tiny bit about JWT - JSON Web Tokens
+- pronouced Jot
+- can be used for Authorization and Authentication in place of other formats like SAML
+- Is a combination of three json objects that are hashed accroding to a specidfed algorithim sepreated by "."
+- example
+```JSON
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
++ 
+{
+  "sub": "1",
+  "name": "Austin Walker",
+  "iat": 1516239022
+}
++
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+ rails_secrets_go_here
+) 
+```
+Would end up as...
+```JSON
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkF1c3RpbiBXYWxrZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.pnTJ07U-hnLG13WyPzkKfHE00rO5ybtDo6Z-HroXGHI
+```
 
 # Creating a Rails Api app 
 Creating a rails api is simple using the rails new command with the api flag. 
