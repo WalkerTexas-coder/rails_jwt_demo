@@ -184,7 +184,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def respond_to_on_destroy
-    p current_user
     if current_user != nil
       log_out_failure
     else
