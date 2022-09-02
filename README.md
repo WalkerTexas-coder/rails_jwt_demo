@@ -36,6 +36,8 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkF1c3RpbiBXYWxrZXI
 ```
 - This token is sent to the client via the Authorization headers as a bearer token
 - For more infor checkout out [jwt](https://jwt.io/)
+- a full list of claims that can be passed to the second object can be found [here](https://www.iana.org/assignments/jwt/jwt.xhtml#claims)
+  - Note that if you send JWT tokens through HTTP headers, you should try to prevent them from getting too big. Some servers don't accept more than 8 KB in headers. If you are trying to embed too much information in a JWT token, like by including all the user's permissions, you may need an alternative solution.
 
 # Creating a Rails Api app 
 Creating a rails api is simple using the rails new command with the api flag. 
@@ -327,6 +329,4 @@ DELETE localhost:3000/users/sign_in
     }
 }
 ```
-
-# Some notes about JWT limitations
-Note that if you send JWT tokens through HTTP headers, you should try to prevent them from getting too big. Some servers don't accept more than 8 KB in headers. If you are trying to embed too much information in a JWT token, like by including all the user's permissions, you may need an alternative solution.
+And that's it!
