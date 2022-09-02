@@ -26,7 +26,7 @@
 {
   "sub": "1",
   "name": "Austin Walker",
-  "iat": 1516239022
+  "jti": 1516239022
 }.
 rails_secrets_go_here
 ```
