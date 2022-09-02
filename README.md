@@ -247,7 +247,7 @@ devise:
 devise_for :users,
   controllers: {
     sessions: 'users/sessions',
-    registraions: 'users/registrations'
+    registrations: 'users/registrations'
   }
 get 'member-data', to: 'members#show'
 ```
