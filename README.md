@@ -284,7 +284,7 @@ POST to localhost:3000/users
     "user" : {
         "email": "test@example.com",
         "password" : "testing123",
-        "password_conformation" : "testing123"
+        "password_confirmation" : "testing123"
     }
 }
 ```
