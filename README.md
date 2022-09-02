@@ -16,7 +16,7 @@
 # A tiny bit about JWT - JSON Web Tokens
 - pronouced Jot
 - can be used for Authorization and Authentication in place of other formats like SAML
-- Is a combination of three json objects that are hashed accroding to a specidfed algorithim sepreated by "."
+- Is a combination of three json objects that are hashed accroding to a specified algorithim sepreated by "."
 - example
 ```
 {
