@@ -1,6 +1,6 @@
 # Rails with Devise and JSON Web Tokens
  ### Inspiration for this talk came from
- - [Deanin's FullStack Devise API walkthrough](https://youtu.be/PqizV5l1yFE)
+ - [Deanin's FullStack with Devise API walkthrough](https://youtu.be/PqizV5l1yFE)
  - Wanting to know more about JSON Web Tokens
  - Friends over at HackNotice
  - LEARN Academy
