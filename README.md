@@ -321,7 +321,7 @@ Headers -> Authorization -> Bearer
 - Direct your postman to the DELETE/users/sign_out endpoint 
 - be sure to send over the token and the email. 
 
-DELETE localhost:3000/users/sign_in
+DELETE localhost:3000/users/sign_out
 ```JSON
 { 
     "user" : {
