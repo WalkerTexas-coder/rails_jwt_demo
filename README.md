@@ -14,9 +14,9 @@
 
 
 # A tiny bit about JWT - JSON Web Tokens
-- pronouced Jot
+- pronounced Jot
 - can be used for Authorization and Authentication in place of other formats like SAML
-- Is a combination of three json objects that are hashed accroding to a specified algorithim sepreated by "."
+- Is a combination of three json objects that are hashed according to a specified algorithm separated by "."
 - example
 ```
 {
@@ -35,7 +35,7 @@ Would end up as...
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkF1c3RpbiBXYWxrZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.pnTJ07U-hnLG13WyPzkKfHE00rO5ybtDo6Z-HroXGHI
 ```
 - This token is sent to the client via the Authorization headers as a bearer token
-- For more infor checkout out [jwt](https://jwt.io/)
+- For more info checkout out [jwt](https://jwt.io/)
 - A full list of claims that can be passed to the second object can be found [here](https://www.iana.org/assignments/jwt/jwt.xhtml#claims)
   - Note that if you send JWT tokens through HTTP headers, you should try to prevent them from getting too big. Some servers don't accept more than 8 KB in headers. If you are trying to embed too much information in a JWT token, like by including all the user's permissions, you may need an alternative solution.
 
@@ -108,7 +108,7 @@ end
 
 
 ## Devise Controllers
-- create file in controllers called members_controller
+- create file in controllers called members_controller.rb
 ```ruby
 class MembersController < ApplicationController
   before_action :authenticate_user!
@@ -215,7 +215,7 @@ end
 - set the session store to handle communication between browsers and server.
 - [session_store article](https://api.rubyonrails.org/v6.0.3.3/classes/ActionDispatch/Session/CookieStore.html#method-c-new)
 - config/application.rb
-  - inster this code roughly around line 20
+  - insert this code roughly around line 20
 ```ruby
  # This also configures session_options for use below
     config.session_store :cookie_store, key: '_interslice_session'
@@ -288,7 +288,7 @@ POST to localhost:3000/users
     }
 }
 ```
-- After this action delete cookie in Postman by clicking cookie the the x by the interslice session. 
+- After this action delete cookie in Postman by clicking Cookies then x by interslice session. 
 - This effectively works as logging out
 
 - Direct your postman to the POST/users/sign_in endpoint. 
@@ -302,11 +302,11 @@ POST localhost:3000/users/sign_in
     }
 }
 ```
-- Notice that when you log in that our API send back the current user's email and password
+- Notice that when you log in our API sends back the current user's email and password
 - If we look inside Headers -> Authorization -> Bearer we will find our JSON Web Token
 
 - Direct your postman to the GET/member-data endpoint 
-- and add the token from the previous respons to the authorization tab -> bearer token field.   
+- and add the token from the previous response to the authorization tab -> bearer token field.   
 
 GET localhost:3000/member-data
 ```JSON
